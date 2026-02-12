@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			document.querySelector("#email").classList.add("error-border");
 			valid = false;
 		}
-		if (!validUsername(document.querySelector("#password").value)) {
+		if (!validPassword(document.querySelector("#password").value)) {
 			displayError("#error-password", "Password must be at least 8 characters");
 			document.querySelector("#password").classList.add("error-border");
 			valid = false;
