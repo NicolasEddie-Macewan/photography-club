@@ -50,6 +50,28 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	})
 
+	const thumbnails = document.querySelectorAll(".thumb");
+	for (let thumb of thumbnails) {
+		thumb.addEventListener("click", function() {
+			for (let innerThumb of thumbnails) {
+				innerThumb.classList.remove("expanded");
+			}
+			thumb.classList.add("expanded");
+			let caption = document.querySelector("#image-caption");
+			caption.textContent = `You selected: ${thumb.dataset.city}`;
+		});
+		thumb.addEventListener("keydown", function(e) {
+			if (e.key === "Enter") {
+				for (let innerThumb of thumbnails) {
+					innerThumb.classList.remove("expanded");
+				}
+				thumb.classList.add("expanded");
+				let caption = document.querySelector("#image-caption");
+				caption.textContent = `You selected: ${thumb.dataset.city}`;
+			}
+		});
+	}
+
 	document.querySelector("#signup-form").addEventListener("submit", function(e) {
 		e.preventDefault();
 		let valid = true;
